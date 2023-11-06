@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VelocityVector (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8569374200494484591, guid: 4dfdabfa58ef2324bb39c9c52f2aa93a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8994076565702585686, guid: 4dfdabfa58ef2324bb39c9c52f2aa93a, type: 3}
       propertyPath: scale
       value: 0.1
@@ -248,6 +252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VelocityVector (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8569374200494484591, guid: 4dfdabfa58ef2324bb39c9c52f2aa93a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8994076565702585686, guid: 4dfdabfa58ef2324bb39c9c52f2aa93a, type: 3}
       propertyPath: scale
       value: 0.1
@@ -320,6 +328,10 @@ PrefabInstance:
     - target: {fileID: 8569374200494484591, guid: 4dfdabfa58ef2324bb39c9c52f2aa93a, type: 3}
       propertyPath: m_Name
       value: VelocityVector
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569374200494484591, guid: 4dfdabfa58ef2324bb39c9c52f2aa93a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8994076565702585686, guid: 4dfdabfa58ef2324bb39c9c52f2aa93a, type: 3}
       propertyPath: scale
@@ -460,6 +472,64 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1132139374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1132139376}
+  - component: {fileID: 1132139375}
+  m_Layer: 0
+  m_Name: VectorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1132139375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132139374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909189441fc5034409c8fd682370446f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityPrefab: {fileID: 8569374200494484591, guid: 4dfdabfa58ef2324bb39c9c52f2aa93a, type: 3}
+  referenceObject: {fileID: 2043042115}
+  offsets:
+  - 0
+  - 0
+  - 0
+  directions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 90, z: 0}
+  - {x: 0, y: 0, z: -90}
+  colors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0.26757336, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.20668364, a: 1}
+--- !u!4 &1132139376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132139374}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.9846349, y: 4.7317142, z: -0.7404337}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1988545760
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,3 +944,4 @@ SceneRoots:
   - {fileID: 578315378}
   - {fileID: 317018800}
   - {fileID: 327021750}
+  - {fileID: 1132139376}
