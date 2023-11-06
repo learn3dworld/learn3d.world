@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class VelocityVector : MonoBehaviour
 {
-    [SerializeField]
-    private float minSize = 0.0025f;
-    [SerializeField]
-    private float scale = 0.25f;
+    public float minSize = 0.0025f;
+    public float scale = 0.25f;
 
-    private Rigidbody referenceObject;
+    public Rigidbody referenceObject;
     private Vector3 unitVector;
     [SerializeField]
     private new Renderer renderer;
@@ -24,27 +22,46 @@ public class VelocityVector : MonoBehaviour
     private Vector3 negOffset;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        referenceObject = GetComponentInParent<Rigidbody>();
+        // referenceObject = GetComponentInParent<Rigidbody>();
 
+        if (renderer == null)
+            renderer = GetComponent<Renderer>();
+
+        tipRenderer = tip.GetComponent<Renderer>();
+    }
+
+    private void Start()
+    {
         // Direction the vector is pointing (parent transform is at root of vector)
         unitVector = (transform.position - transform.parent.position).normalized;
         posOffset = unitVector * offset;
         negOffset = posOffset * -1;
+    }
 
-        if (renderer == null)
-            renderer = GetComponent<Renderer>();
-        
-        tipRenderer = tip.GetComponent<Renderer>();
+    public void setOffset(float offset)
+    {
+        this.offset = offset;
+        posOffset = unitVector * offset;
+        negOffset = posOffset * -1;
+    }
+
+    public void setColor(Color color)
+    {
+        renderer.material.SetColor("_Color", color);
+        tipRenderer.material.SetColor("_Color", color);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (referenceObject == null) { return; }
+
+
         // Get the velocity in the direction of the unit vector
         float velocity = Vector3.Dot(referenceObject.velocity, unitVector);
-        float length = scale * velocity;
+        float length = Mathf.Sqrt(Mathf.Abs(scale * velocity)) * Mathf.Sign(velocity * scale);
 
         // Disable rendering if the arrow is too small
         bool renderVector = System.Math.Abs(length) >= minSize;
@@ -57,6 +74,7 @@ public class VelocityVector : MonoBehaviour
 
         // Move the vector to the outside of the object
         transform.parent.parent.localPosition = (length > 0 ? posOffset : negOffset);
+        transform.parent.parent.position = referenceObject.position;
 
         // Scale the X-axis to make the arrow the right length
         Vector3 arrowScale = this.transform.parent.localScale;
