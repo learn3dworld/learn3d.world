@@ -5,7 +5,7 @@ public class SmoothedTransformVelocityReference : IVelocityReference
     private Vector3 lastPos;
     private Vector3 velocity;
     private Vector3 resultant;
-    public float alpha = 0.6;
+    public float alpha = 0.6f;
     private float oneMinusAlpha;
 
     // Start is called before the first frame update
