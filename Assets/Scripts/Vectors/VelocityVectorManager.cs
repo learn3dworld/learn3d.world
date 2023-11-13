@@ -8,7 +8,7 @@ public class VelocityVectorManager : MonoBehaviour
     private GameObject velocityPrefab;
 
     [SerializeField]
-    private Rigidbody referenceObject;
+    private IVelocityReference velocityReference;
 
     [SerializeField]
     private float[] offsets = new float[] { 0, 0, 0 };
@@ -33,7 +33,7 @@ public class VelocityVectorManager : MonoBehaviour
 
             vectorScripts[i].setOffset(offsets[i]);
             vectors[i].transform.eulerAngles = directions[i];
-            vectorScripts[i].referenceObject = this.referenceObject;
+            vectorScripts[i].referenceObject = this.velocityReference;
         }
     }
 

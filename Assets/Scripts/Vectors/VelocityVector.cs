@@ -5,18 +5,16 @@ public class VelocityVector : MonoBehaviour
     public float minSize = 0.0025f;
     public float scale = 0.25f;
 
-    public Rigidbody referenceObject;
-    private Vector3 unitVector;
-    [SerializeField]
-    private new Renderer renderer;
-    [SerializeField]
-    private GameObject tip;
-    private Renderer tipRenderer;
+    public IVelocityReference referenceObject;
 
+    private Vector3 unitVector;
+    [SerializeField] private new Renderer renderer;
+    [SerializeField] private GameObject tip;
+    private Renderer tipRenderer;
+    
     private bool isRendered = true;
 
-    [SerializeField]
-    private float offset = 0.5f;
+    [SerializeField] private float offset = 0.5f;
 
     private Vector3 posOffset;
     private Vector3 negOffset;
@@ -24,8 +22,6 @@ public class VelocityVector : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        // referenceObject = GetComponentInParent<Rigidbody>();
-
         if (renderer == null)
             renderer = GetComponent<Renderer>();
 
@@ -58,9 +54,8 @@ public class VelocityVector : MonoBehaviour
     {
         if (referenceObject == null) { return; }
 
-
         // Get the velocity in the direction of the unit vector
-        float velocity = Vector3.Dot(referenceObject.velocity, unitVector);
+        float velocity = Vector3.Dot(referenceObject.getVelocity(), unitVector);
         float length = Mathf.Sqrt(Mathf.Abs(scale * velocity)) * Mathf.Sign(velocity * scale);
 
         // Disable rendering if the arrow is too small
@@ -74,7 +69,7 @@ public class VelocityVector : MonoBehaviour
 
         // Move the vector to the outside of the object
         transform.parent.parent.localPosition = (length > 0 ? posOffset : negOffset);
-        transform.parent.parent.position = referenceObject.position;
+        transform.parent.parent.position = referenceObject.getPosition();
 
         // Scale the X-axis to make the arrow the right length
         Vector3 arrowScale = this.transform.parent.localScale;
