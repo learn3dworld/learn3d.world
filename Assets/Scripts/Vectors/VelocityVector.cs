@@ -19,6 +19,6 @@ public class VelocityVector : MonoBehaviour
         if (referenceObject == null) { return; }
 
         Vector3 velocity = referenceObject.getVelocity();
-        vector.setPosition(velocity, scale);
+        vector.setVector(velocity, scale);
     }
 }

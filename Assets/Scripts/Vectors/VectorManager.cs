@@ -16,6 +16,10 @@ public class VectorManager : MonoBehaviour
     public GameObject mainVector;
     public Vector mainVectorScript;
     public GameObject[] componentVectors;
+    public Vector[] componentVectorScripts;
+
+    public float mainScale;
+    public float componentScale = 5f;
 
     public bool componentsShown { get; private set; }
     public bool mainVectorShown { get; private set; }
@@ -26,34 +30,45 @@ public class VectorManager : MonoBehaviour
         mainVector.transform.SetParent(transform, false);
         mainVectorScript = mainVector.GetComponent<Vector>();
 
+        mainVectorScript.origin = this.transform;
+
         componentVectors = new GameObject[componentAxes.Length];
+        componentVectorScripts = new Vector[componentAxes.Length];
         for (int i = 0; i<componentAxes.Length; i++)
         {
             componentVectors[i] = Instantiate(componentVectorPrefab);
-            componentVectors[i].transform.SetParent(transform, false);
+            //componentVectors[i].transform.SetParent(transform, false);
             ComponentVector componentScript = componentVectors[i].GetComponent<ComponentVector>();
             componentScript.mainVector = mainVectorScript;
-            componentScript.axis = componentAxes[i];
+            componentScript.setAxis(componentAxes[i]);
+            componentScript.scale = componentScale;
+
+            Vector vectorScript = componentVectors[i].GetComponent<Vector>();
+            componentVectorScripts[i] = vectorScript;
+            vectorScript.origin = this.transform;
+
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        showMainVector(true);
+        showComponents(false);
     }
 
-    void toggleMainVector(bool visible)
+    void showMainVector(bool visible)
     {
         this.mainVectorShown = visible;
-        mainVector.SetActive(visible);
+        mainVectorScript.setRender(visible);
     }
-    void toggleComponents(bool visible)
+    void showComponents(bool visible)
     {
         this.componentsShown = visible;
-        foreach (GameObject component in componentVectors)
+        foreach (Vector component in componentVectorScripts)
         {
-            component.SetActive(visible);
+            Debug.Log(visible);
+            component.setRender(visible);
         }
     }
 

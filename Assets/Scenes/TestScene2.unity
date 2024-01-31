@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8ec817fd4fbec48a83fbad226afd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: 0.25
+  scale: 0.025
   referenceObject: {fileID: 148672608}
 --- !u!1 &833228494
 GameObject:
@@ -584,6 +584,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: VectorManager
       objectReference: {fileID: 0}
+    - target: {fileID: 9071340340833292054, guid: 32fbb3557275f88408967cb154506314, type: 3}
+      propertyPath: componentAxes.Array.data[0].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071340340833292054, guid: 32fbb3557275f88408967cb154506314, type: 3}
+      propertyPath: componentAxes.Array.data[1].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071340340833292054, guid: 32fbb3557275f88408967cb154506314, type: 3}
+      propertyPath: componentAxes.Array.data[2].z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -754,7 +766,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128855689}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fc9e3f0a4ede8e4eb83bd9a7df5989c, type: 3}
   m_Name: 

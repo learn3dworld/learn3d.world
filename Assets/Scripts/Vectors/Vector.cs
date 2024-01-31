@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class Vector : MonoBehaviour
 {
     // Starting point
     public Transform tail;
+
+    public Transform origin;
     // End point (object)
     public GameObject tip;
     private Renderer tipRenderer;
@@ -14,7 +17,7 @@ public class Vector : MonoBehaviour
     public LineRenderer lineRenderer;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (lineRenderer == null) { lineRenderer = GetComponent<LineRenderer>(); }
         if (tipRenderer == null) {  tipRenderer = tip.GetComponent<Renderer>(); }
@@ -31,14 +34,26 @@ public class Vector : MonoBehaviour
         return tip.transform.position - tail.position;
     }
 
-    public void setPosition(Vector3 vector, float scale)
+    public void setTailPosition(Vector3 pos)
+    {
+        tail.position = pos;
+    }
+
+    public void setVector(Vector3 vector, float scale)
     {
         tip.transform.position = tail.position + vector*scale;
     }
 
-    public void setPosition(Vector3 vector)
+    public void setVector(Vector3 vector)
     {
-        setPosition(vector, 1);
+        setVector(vector, 1);
+    }
+
+    public void setRender(bool rendered)
+    {
+        this.isRendered = rendered;
+        lineRenderer.enabled = rendered;
+        tipRenderer.enabled = rendered;
     }
 
     // Update is called once per frame
@@ -46,16 +61,21 @@ public class Vector : MonoBehaviour
     {
         refreshPosition();
 
+        if (origin)
+        {
+            setTailPosition(origin.position);
+        }
+
+        bool renderVector = false;
+
         // Check if vector length is too short
         float length = (tip.transform.position - tail.position).magnitude;
-        bool renderVector = length >= minSize;
+        renderVector = length >= minSize;
         
         // Update rendering if necessary
         if (isRendered != renderVector)
         {
-            isRendered = renderVector;
-            lineRenderer.enabled = isRendered;
-            tipRenderer.enabled = isRendered;
+            setRender(renderVector);
         }
 
         //TODO: Make sure tip is facing outwards

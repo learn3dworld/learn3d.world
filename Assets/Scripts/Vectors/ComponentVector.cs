@@ -5,12 +5,20 @@ public class ComponentVector : MonoBehaviour
     public Vector mainVector;
     public Vector newVector;
 
-    public Vector3 axis;
+    private Vector3 axis;
+    private float axisLengthSquared;
+    public float scale;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (axis == null) { axis = Vector3.forward; }
+        if (axis == null) { setAxis(Vector3.forward); }
+    }
+
+    public void setAxis(Vector3 vector)
+    {
+        axis = vector;
+        axisLengthSquared = axis.magnitude * axis.magnitude; 
     }
 
     // Update is called once per frame
@@ -19,7 +27,7 @@ public class ComponentVector : MonoBehaviour
         if (mainVector == null) { return; }
 
         Vector3 original = mainVector.toVector3();
-        float length = Vector3.Dot(original, axis);
-        newVector.setPosition(axis, length);
+        float length = Vector3.Dot(original, axis) / axisLengthSquared;
+        newVector.setVector(axis, length * scale);
     }
 }
