@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tail: {fileID: 2474326755095721006}
+  origin: {fileID: 584815857767728314}
   tip: {fileID: 1738955635071029104}
   minSize: 0.0025
   lineRenderer: {fileID: 8221919278610067764}

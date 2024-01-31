@@ -27,6 +27,7 @@ public class Vector : MonoBehaviour
     {
         lineRenderer.SetPosition(0, tail.position);
         lineRenderer.SetPosition(1, tip.transform.position);
+        tip.transform.LookAt(tail.position);
     }
 
     public Vector3 toVector3()
