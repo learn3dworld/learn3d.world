@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: My project
+  companyName: Learn3dWorld
+  productName: Learn3DWorld
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -138,6 +138,7 @@ PlayerSettings:
   bundleVersion: 0.1
   preloadedAssets:
   - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 11400000, guid: ec617d52d699b4b40bb7d4bfea0bddfe, type: 2}
   - {fileID: -8196854396901781169, guid: 1a4c68ca72a83449f938d669337cb305, type: 2}
   - {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
@@ -161,7 +162,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.unity.vrtemplate
+    Android: com.l3d.l3dworld
     Standalone: com.Unity-Technologies.VR-Template
   buildNumber:
     Standalone: 0
