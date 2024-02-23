@@ -80,5 +80,6 @@ public class Vector : MonoBehaviour
         }
 
         //TODO: Make sure tip is facing outwards
+        tip.transform.LookAt(tail);
     }
 }
