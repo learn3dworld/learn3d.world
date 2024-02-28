@@ -26,6 +26,7 @@ public class ComponentVector : MonoBehaviour
     {
         if (mainVector == null) { return; }
 
+        newVector.setTailPosition(mainVector.transform.position);
         Vector3 original = mainVector.toVector3();
         float length = Vector3.Dot(original, axis) / axisLengthSquared;
         newVector.setVector(axis, length * scale);

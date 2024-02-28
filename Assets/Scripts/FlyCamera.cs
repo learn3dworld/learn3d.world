@@ -13,10 +13,13 @@ public class FlyCamera : MonoBehaviour
     shift : Makes camera accelerate
     space : Moves camera on X and Z axis only.  So camera doesn't gain any height*/
 
-
-    float mainSpeed = 100.0f; //regular speed
-    float shiftAdd = 250.0f; //multiplied by how long shift is held.  Basically running
-    float maxShift = 1000.0f; //Maximum speed when holdin gshift
+    [SerializeField]
+    float mainSpeed = 25.0f; //regular speed
+    [SerializeField]
+    float shiftAdd = 100.0f; //multiplied by how long shift is held.  Basically running
+    [SerializeField]
+    float maxShift = 500.0f; //Maximum speed when holdin gshift
+    [SerializeField]
     float camSens = 0.25f; //How sensitive it with mouse
     private Vector3 lastMouse = new Vector3(255, 255, 255); //kind of in the middle of the screen, rather than at the top (play)
     private float totalRun = 1.0f;
@@ -31,7 +34,6 @@ public class FlyCamera : MonoBehaviour
         //Mouse  camera angle done.  
 
         //Keyboard commands
-        float f = 0.0f;
         Vector3 p = GetBaseInput();
         if (p.sqrMagnitude > 0)
         { // only move while a direction key is pressed

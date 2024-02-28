@@ -5,22 +5,27 @@ public class Vector : MonoBehaviour
 {
     // Starting point
     public Transform tail;
-
     public Transform origin;
+
     // End point (object)
     public GameObject tip;
-    private Renderer tipRenderer;
+    private Renderer[] tipRenderers;
     private bool isRendered = true;
 
     public float minSize = 0.0025f;
 
     public LineRenderer lineRenderer;
 
+    public bool tipIsInteractable = true;
+    public bool tailIsInteractable = true;
+    private bool tipCurrentlyInteractable = true;
+    private bool tailCurrentlyInteractable = true;
+
     // Start is called before the first frame update
     void Awake()
     {
         if (lineRenderer == null) { lineRenderer = GetComponent<LineRenderer>(); }
-        if (tipRenderer == null) {  tipRenderer = tip.GetComponent<Renderer>(); }
+        if (tipRenderers == null) { tipRenderers = tip.GetComponentsInChildren<Renderer>(); }
     }
 
     public void refreshPosition()
@@ -54,7 +59,10 @@ public class Vector : MonoBehaviour
     {
         this.isRendered = rendered;
         lineRenderer.enabled = rendered;
-        tipRenderer.enabled = rendered;
+        foreach (Renderer renderer in tipRenderers)
+        {
+            renderer.enabled = rendered;
+        }
     }
 
     // Update is called once per frame
@@ -62,9 +70,26 @@ public class Vector : MonoBehaviour
     {
         refreshPosition();
 
-        if (origin)
+        //if (origin)
+        //{
+        //    setTailPosition(origin.position);
+        //}
+
+        if (tipIsInteractable != tipCurrentlyInteractable)
         {
-            setTailPosition(origin.position);
+            foreach (Rigidbody rb in tip.GetComponentsInChildren<Rigidbody>())
+            {
+                rb.isKinematic = !tipIsInteractable;
+            }
+            tipCurrentlyInteractable = tipIsInteractable;
+        }
+        if (tailIsInteractable != tailCurrentlyInteractable)
+        {
+            foreach (Rigidbody rb in tail.GetComponents<Rigidbody>())
+            {
+                rb.isKinematic = !tailIsInteractable;
+            }
+            tailCurrentlyInteractable = tailIsInteractable;
         }
 
         bool renderVector = false;

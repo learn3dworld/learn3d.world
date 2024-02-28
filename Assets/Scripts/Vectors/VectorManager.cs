@@ -46,7 +46,6 @@ public class VectorManager : MonoBehaviour
             Vector vectorScript = componentVectors[i].GetComponent<Vector>();
             componentVectorScripts[i] = vectorScript;
             vectorScript.origin = this.transform;
-
         }
     }
 

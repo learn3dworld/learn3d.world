@@ -3,7 +3,11 @@ guid: 7466814e0587faf4dbdb47630d233cf5
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - vectorPrefab: {fileID: 1186696146020878197, guid: 1572e7dedc2684c4a8f98e9e1006fa43, type: 3}
+  - componentVectorPrefab: {fileID: 1186696146020878197, guid: ea039a1377a9712458edf7fc4a5cd172, type: 3}
+  - mainVector: {instanceID: 0}
+  - mainVectorScript: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

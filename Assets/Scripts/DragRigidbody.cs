@@ -30,6 +30,8 @@ public class DragRigidbody : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0) && selectedRigidbody)
         {
+            selectedRigidbody.velocity = Vector3.zero;
+            selectedRigidbody.angularVelocity = Vector3.zero;
             //Release selected Rigidbody if there any
             selectedRigidbody = null;
         }
@@ -37,7 +39,7 @@ public class DragRigidbody : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (selectedRigidbody)
+        if (selectedRigidbody && !selectedRigidbody.isKinematic)
         {
             Vector3 mousePositionOffset = targetCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, selectionDistance)) - originalScreenTargetPosition;
             selectedRigidbody.velocity = (originalRigidbodyPos + mousePositionOffset - selectedRigidbody.transform.position) * forceAmount * Time.deltaTime;
