@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Vector : MonoBehaviour
@@ -16,6 +17,8 @@ public class Vector : MonoBehaviour
 
     public LineRenderer lineRenderer;
 
+    public float length = 0;
+
     public bool tipIsInteractable = true;
     public bool tailIsInteractable = true;
     private bool tipCurrentlyInteractable = true;
@@ -28,8 +31,28 @@ public class Vector : MonoBehaviour
         if (tipRenderers == null) { tipRenderers = tip.GetComponentsInChildren<Renderer>(); }
     }
 
+    public void refreshLength()
+    {
+        if (tipIsInteractable || tailIsInteractable)
+        {
+            length = Math.Abs(tail.position.magnitude - tip.transform.position.magnitude);
+        }
+    }
+
     public void refreshPosition()
     {
+        Debug.Log(length);
+        if (!tipIsInteractable && !tailIsInteractable)
+        {
+            if (Math.Abs(length) < minSize)
+            {
+                length = minSize;
+            }
+            setVector(toVector3().normalized * length);
+            length = Math.Abs(length);
+        }
+        refreshLength();
+
         lineRenderer.SetPosition(0, tail.position);
         lineRenderer.SetPosition(1, tip.transform.position);
         tip.transform.LookAt(tail.position);
@@ -69,11 +92,6 @@ public class Vector : MonoBehaviour
     void Update()
     {
         refreshPosition();
-
-        //if (origin)
-        //{
-        //    setTailPosition(origin.position);
-        //}
 
         if (tipIsInteractable != tipCurrentlyInteractable)
         {
