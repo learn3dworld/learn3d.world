@@ -156,6 +156,7 @@ MonoBehaviour:
   tip: {fileID: 6828567128564051811}
   minSize: 0.0025
   lineRenderer: {fileID: 8221919278610067764}
+  length: 0
   tipIsInteractable: 1
   tailIsInteractable: 1
 --- !u!1 &1237741051429296292
