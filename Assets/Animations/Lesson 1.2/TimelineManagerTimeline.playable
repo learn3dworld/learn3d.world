@@ -435,6 +435,15 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
+        time: 17.716667
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
         time: 18.4
         value: {x: 0, y: -0.6700001, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
@@ -480,9 +489,9 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 17.716667
-        value: {x: 0.55, y: 1.1, z: 0.55}
-        inSlope: {x: 0.021238945, y: 0.047058836, z: 0.021238945}
-        outSlope: {x: 0.021238945, y: 0.047058836, z: 0.021238945}
+        value: {x: 0.55, y: 1, z: 0.55}
+        inSlope: {x: 0.021238945, y: 0, z: 0.021238945}
+        outSlope: {x: 0.021238945, y: 0, z: 0.021238945}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -648,9 +657,9 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 17.716667
-        value: 1.1
-        inSlope: 0.047058836
-        outSlope: 0.047058836
+        value: 1
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -809,6 +818,15 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 17.716667
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 18.4
         value: -0.6700001
         inSlope: 0
@@ -880,7 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e67db2816205a4a8a296c1e8dccafd, type: 3}
   m_Name: SubtitleClip
   m_EditorClassIdentifier: 
-  subtitleText: 'Let''s  learn some of the properties of vectors '
+  subtitleText: 'Let''s learn some of the properties of vectors '
 --- !u!114 &2832457429795499274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -906,7 +924,7 @@ MonoBehaviour:
     m_Start: 2.5500000000005
     m_ClipIn: 0
     m_Asset: {fileID: -4857826134743516832}
-    m_Duration: 100
+    m_Duration: 50
     m_TimeScale: 1
     m_ParentTrack: {fileID: 2832457429795499274}
     m_EaseInDuration: 0
@@ -1231,7 +1249,7 @@ MonoBehaviour:
   m_InfiniteClipApplyFootIK: 1
   mInfiniteClipLoop: 0
   m_MatchTargetFields: 63
-  m_Position: {x: 0, y: 4.26, z: 0}
+  m_Position: {x: 0, y: 1.59, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_AvatarMask: {fileID: 0}
   m_ApplyAvatarMask: 1
