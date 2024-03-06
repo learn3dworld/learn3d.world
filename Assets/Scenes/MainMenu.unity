@@ -759,6 +759,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 162444586515490405, guid: 52b14beb3c3c43741be61a048846af3f, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 162444586515490405, guid: 52b14beb3c3c43741be61a048846af3f, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 162444586515490405, guid: 52b14beb3c3c43741be61a048846af3f, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 720
+      objectReference: {fileID: 0}
     - target: {fileID: 461263345415632498, guid: 52b14beb3c3c43741be61a048846af3f, type: 3}
       propertyPath: m_Name
       value: SubtitleOverlay
