@@ -1,16 +1,20 @@
+using JetBrains.Annotations;
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class Menu : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+{ 
+    public void toLesson1_1()
     {
-        
+        SceneManager.LoadScene("Lesson 1.1", LoadSceneMode.Single);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void toLesson1_2()
     {
-        if()
+        SceneManager.LoadScene("Lesson 1.2", LoadSceneMode.Single);
     }
+
+
 }
