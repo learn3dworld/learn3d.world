@@ -21,14 +21,15 @@ public class Menu2 : MonoBehaviour
         {
             button.onClick.RemoveAllListeners();
             button.enabled = true;
-            buttons[0].interactable = true;
+            button.interactable = true;
+            button.gameObject.SetActive(true);
         }
     }
 
     public void InstantiateMainMenu()
     {
         Debug.Log("Instantiated Main Menu");
-        //clearListeners();
+        clearListeners();
         buttons[0].onClick.AddListener(InstantiateLessonsMenu);
         texts[0].text = "    Lessons";
 
@@ -47,24 +48,41 @@ public class Menu2 : MonoBehaviour
         Debug.Log("Instantiated Lessons Menu");
         clearListeners();
         buttons[0].onClick.AddListener(InstantiateLessonsMenu);
-        buttons[1].onClick.AddListener(InstantiateSettingsMenu);
-        buttons[2].onClick.AddListener(InstantiateAboutMenu);
-        buttons[3].onClick.AddListener(Application.Quit);
+        buttons[0].interactable = false;
+        texts[0].text = "    Unit 1";
+
+        buttons[1].onClick.AddListener(() => loadScene("Lesson 1.1"));
+        texts[1].text = "    Lesson 1.1";
+        
+        buttons[2].onClick.AddListener(() => loadScene("Lesson 1.2"));
+        texts[2].text = "    Lesson 1.2";
+
+        buttons[3].onClick.AddListener(InstantiateMainMenu);
+        texts[3].text = "    Back";
     }
 
     public void InstantiateAboutMenu()
     {
         Debug.Log("Instantiated About Menu");
         clearListeners();
-        buttons[0].onClick.AddListener(InstantiateLessonsMenu);
-        buttons[1].onClick.AddListener(InstantiateSettingsMenu);
-        buttons[2].onClick.AddListener(InstantiateAboutMenu);
-        buttons[3].onClick.AddListener(Application.Quit);
+        buttons[0].gameObject.SetActive(false);
+        buttons[1].gameObject.SetActive(false);
+        buttons[2].gameObject.SetActive(false);
+
+        buttons[3].onClick.AddListener(InstantiateMainMenu);
+        texts[3].text = "    Back";
     }
 
     public void InstantiateSettingsMenu()
     {
         Debug.Log("Instantiated Settings Menu");
+        clearListeners();
+        buttons[0].gameObject.SetActive(false);
+        buttons[1].gameObject.SetActive(false);
+        buttons[2].gameObject.SetActive(false);
+
+        buttons[3].onClick.AddListener(InstantiateMainMenu);
+        texts[3].text = "    Back";
     }
 
     public void loadScene(string scene)
