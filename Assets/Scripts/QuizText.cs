@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 using UnityEngine.UI;
 
 
@@ -15,6 +16,8 @@ public class QuizText : MonoBehaviour
     private string[] answers = new string[4] { "", "", "", "" };
     [SerializeField]
     private string questionText = "";
+    [SerializeField]
+    private GameObject nextTimeline;
 
     private string[] questionNames = new string[4]
     {
@@ -34,7 +37,10 @@ public class QuizText : MonoBehaviour
     {
         if (correctAnswer == questionButton)
         {
-            Debug.Log("Correct!!!!!!!!!!!!!!!!!!!");
+            if (nextTimeline != null)
+            {
+                nextTimeline.SetActive(true);
+            }
         }
     }
 
