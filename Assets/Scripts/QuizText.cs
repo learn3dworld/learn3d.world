@@ -85,6 +85,16 @@ public class QuizText : MonoBehaviour
         }
     }
 
+    public void show()
+    {
+        this.gameObject.SetActive(true);
+    }
+
+    public void hide()
+    {
+        this.gameObject.SetActive(true);
+    }
+
     public void loadScene(string scene)
     {
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
