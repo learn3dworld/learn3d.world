@@ -41,7 +41,7 @@ public class Vector : MonoBehaviour
 
     public void refreshPosition()
     {
-        Debug.Log(length);
+        //Debug.Log(length);
         if (!tipIsInteractable && !tailIsInteractable)
         {
             if (Math.Abs(length) < minSize)

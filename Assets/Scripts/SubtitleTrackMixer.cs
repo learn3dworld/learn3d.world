@@ -24,7 +24,7 @@ public class SubtitleTrackMixer : PlayableBehaviour
 
                 SubtitleBehavior input = inputPlayable.GetBehaviour();
 
-                Debug.Log(inputWeight);
+                //Debug.Log(inputWeight);
 
                 currentAlpha = inputWeight;
                 currentText = input.subtitleText;

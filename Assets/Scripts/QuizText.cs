@@ -31,15 +31,18 @@ public class QuizText : MonoBehaviour
     }
 
     [SerializeField]
-    private QuestionButton correctAnswer;
+    private int correctAnswer;
 
-    public void OnButtonClick(QuestionButton questionButton)
+    public void OnButtonClick(int questionButton)
     {
+        Debug.Log(questionButton);
         if (correctAnswer == questionButton)
         {
             if (nextTimeline != null)
             {
+                Debug.Log("helo");
                 nextTimeline.SetActive(true);
+                gameObject.SetActive(false);
             }
         }
     }
@@ -49,28 +52,18 @@ public class QuizText : MonoBehaviour
     {
         clearListeners();
 
-        buttons[0].onClick.AddListener(() => {
-            OnButtonClick(QuestionButton.A1);
-        });
-
-        buttons[1].onClick.AddListener(() => {
-            OnButtonClick(QuestionButton.A2);
-        });
-
-        buttons[2].onClick.AddListener(() => {
-            OnButtonClick(QuestionButton.A3);
-        });
-
-        buttons[3].onClick.AddListener(() => {
-            OnButtonClick(QuestionButton.A4);
-        });
-
         for (int i = 0; i < buttons.Length; i++)
         {
+            if (buttons[i])
+            {
+                int j = i;
+                buttons[i].onClick.AddListener(() => {
+                    OnButtonClick(j);
+                });
 
-            buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = questionNames[i] + ". " + answers[i];
+                buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = questionNames[i] + ". " + answers[i];
+            }
         }
-
         questionTextElement.text = "Question: " + questionText;
     }
 
