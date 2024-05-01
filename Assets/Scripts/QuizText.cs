@@ -18,6 +18,8 @@ public class QuizText : MonoBehaviour
     private string questionText = "";
     [SerializeField]
     private GameObject nextTimeline;
+    [SerializeField]
+    private GameObject wrongText;
 
     private string[] questionNames = new string[4]
     {
@@ -41,9 +43,13 @@ public class QuizText : MonoBehaviour
             if (nextTimeline != null)
             {
                 Debug.Log("helo");
+                wrongText.SetActive(false);
                 nextTimeline.SetActive(true);
                 gameObject.SetActive(false);
             }
+        } else
+        {
+            wrongText.SetActive(true);
         }
     }
 
