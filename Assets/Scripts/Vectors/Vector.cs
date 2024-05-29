@@ -48,7 +48,10 @@ public class Vector : MonoBehaviour
             {
                 length = minSize;
             }
-            setVector(toVector3().normalized * length);
+
+            Debug.Log(toRoundedVector3());
+
+            setVector(toRoundedVector3().normalized * length);
             length = Math.Abs(length);
         }
         refreshLength();
@@ -61,6 +64,13 @@ public class Vector : MonoBehaviour
     public Vector3 toVector3()
     {
         return tip.transform.position - tail.position;
+    }
+
+    public Vector3 toRoundedVector3()
+    {
+        return new Vector3((int)(Math.Round(tip.transform.position.x - tail.position.x)),
+            (int)(Math.Round(tip.transform.position.y - tail.position.y)),
+            (int)(Math.Round(tip.transform.position.z - tail.position.z)));
     }
 
     public void setTailPosition(Vector3 pos)
