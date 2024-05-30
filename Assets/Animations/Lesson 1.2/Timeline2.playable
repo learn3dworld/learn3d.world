@@ -484,8 +484,8 @@ MonoBehaviour:
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
   m_Time: 2.75
-  m_Retroactive: 0
-  m_EmitOnce: 0
+  m_Retroactive: 1
+  m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: a7007fed07463f54f978bdf3206dec4b, type: 2}
 --- !u!74 &4037773701580209361
 AnimationClip:

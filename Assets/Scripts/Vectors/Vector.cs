@@ -42,20 +42,20 @@ public class Vector : MonoBehaviour
     public void refreshPosition()
     {
         //Debug.Log(length);
-        if (!tipIsInteractable && !tailIsInteractable)
-        {
-            if (Math.Abs(length) < minSize)
-            {
-                length = minSize;
-            }
-            setVector(toVector3().normalized * length);
-            length = Math.Abs(length);
-        }
+        //if (!tipIsInteractable && !tailIsInteractable)
+        //{
+        //    if (Math.Abs(length) < minSize)
+        //    {
+        //        length = minSize;
+        //    }
+        //    setVector(toVector3().normalized * length);
+        //    length = Math.Abs(length);
+        //}
         refreshLength();
 
         lineRenderer.SetPosition(0, tail.position);
         lineRenderer.SetPosition(1, tip.transform.position);
-        tip.transform.LookAt(tail.position);
+        //tip.transform.LookAt(tail.position);
     }
 
     public Vector3 toVector3()
@@ -93,36 +93,36 @@ public class Vector : MonoBehaviour
     {
         refreshPosition();
 
-        if (tipIsInteractable != tipCurrentlyInteractable)
-        {
-            foreach (Rigidbody rb in tip.GetComponentsInChildren<Rigidbody>())
-            {
-                rb.isKinematic = !tipIsInteractable;
-            }
-            tipCurrentlyInteractable = tipIsInteractable;
-        }
-        if (tailIsInteractable != tailCurrentlyInteractable)
-        {
-            foreach (Rigidbody rb in tail.GetComponents<Rigidbody>())
-            {
-                rb.isKinematic = !tailIsInteractable;
-            }
-            tailCurrentlyInteractable = tailIsInteractable;
-        }
+        //if (tipIsInteractable != tipCurrentlyInteractable)
+        //{
+        //    foreach (Rigidbody rb in tip.GetComponentsInChildren<Rigidbody>())
+        //    {
+        //        rb.isKinematic = !tipIsInteractable;
+        //    }
+        //    tipCurrentlyInteractable = tipIsInteractable;
+        //}
+        //if (tailIsInteractable != tailCurrentlyInteractable)
+        //{
+        //    foreach (Rigidbody rb in tail.GetComponents<Rigidbody>())
+        //    {
+        //        rb.isKinematic = !tailIsInteractable;
+        //    }
+        //    tailCurrentlyInteractable = tailIsInteractable;
+        //}
 
-        bool renderVector = false;
+        //bool renderVector = false;
 
         // Check if vector length is too short
-        float length = (tip.transform.position - tail.position).magnitude;
-        renderVector = length >= minSize;
+        //float length = (tip.transform.position - tail.position).magnitude;
+        //renderVector = length >= minSize;
         
         // Update rendering if necessary
-        if (isRendered != renderVector)
-        {
-            setRender(renderVector);
-        }
+        //if (isRendered != renderVector)
+        //{
+        //    setRender(renderVector);
+        //}
 
         //TODO: Make sure tip is facing outwards
-        tip.transform.LookAt(tail);
+        //tip.transform.LookAt(tail);
     }
 }
